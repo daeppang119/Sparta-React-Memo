@@ -3,6 +3,8 @@
 
 import React from "react";
 import styled from "styled-components";
+import TestPage from "./components/TestPage/TestPage";
+import GlobalStyle from "./styledComponents/GlobalStyle";
 
 const StContainer = styled.div`
   display: flex;
@@ -35,19 +37,25 @@ const getBoxName = (color) => {
 };
 
 export default function App() {
+  const title = "전역 스타일링 제목입니다.";
+  const contents = "전역 스타일링 내용입니다.";
   return (
-    <StContainer>
-      {}
-      {/* <StBox borderColor="red">박스</StBox>
+    <>
+      <GlobalStyle />
+      <StContainer>
+        {}
+        {/* <StBox borderColor="red">박스</StBox>
       <StBox borderColor="blue">박스</StBox>
       <StBox borderColor="green">박스</StBox> */}
-      {boxList.map((box) => {
-        return (
-          <StBox key={box} borderColor={box}>
-            {getBoxName(box)}
-          </StBox>
-        );
-      })}
-    </StContainer>
+        {boxList.map((box) => {
+          return (
+            <StBox key={box} borderColor={box}>
+              {getBoxName(box)}
+            </StBox>
+          );
+        })}
+      </StContainer>
+      <TestPage title={title} contents={contents} />
+    </>
   );
 }
